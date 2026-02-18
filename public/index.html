@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maya Agnihotri</title>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+
+  <!-- Open Graph (Facebook, iMessage, etc.) -->
+  <meta property="og:title" content="Maya Agnihotri">
+  <meta property="og:description" content="Engineer, student, entrepreneur, and creator. Passionate about using data to solve real problems for real people.">
+  <meta property="og:image" content="/images/maya.png">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Maya Agnihotri">
+  <meta name="twitter:description" content="Engineer, student, entrepreneur, and creator. Passionate about using data to solve real problems for real people.">
+  <meta name="twitter:image" content="/images/maya.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #111;
+      --gray: #555;
+      --light-gray: #999;
+      --border: #ddd;
+      --green: #2d6a4f;
+      --bg: #f5f0eb;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Karla', sans-serif;
+      background: var(--bg);
+      color: var(--black);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--green); color: white; }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(245,240,235,0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 14px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1rem;
+      color: var(--black);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+
+    .nav-links a {
+      color: var(--light-gray);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+
+    .nav-links a:hover, .nav-links a.active { color: var(--green); }
+
+    .page { display: none; max-width: 720px; margin: 0 auto; padding: 0 28px; }
+    .page.active { display: block; }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      padding: 120px 0 60px;
+    }
+
+    .hero-text { flex: 1; }
+
+    .hero h1 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 2.6rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .hero-links { display: flex; gap: 20px; }
+
+    .hero-links a {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding-bottom: 2px;
+      border-bottom: 1.5px solid var(--green);
+      transition: opacity 0.2s;
+      cursor: pointer;
+    }
+
+    .hero-links a:hover { opacity: 0.6; }
+
+    .hero-photo {
+      width: 240px;
+      height: 300px;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding-bottom: 48px;
+    }
+
+    .social-row a {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border-bottom: 1px solid var(--green);
+      padding-bottom: 1px;
+      transition: opacity 0.2s;
+    }
+
+    .social-row a:hover { opacity: 0.7; }
+
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0 0 48px; }
+
+    .section { margin-bottom: 48px; }
+
+    .section-label {
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+
+    .story p {
+      color: var(--gray);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .story p:last-child { margin-bottom: 0; }
+    .story strong { color: var(--black); font-weight: 600; }
+    .story em { font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--black); }
+    .story a { color: var(--green); border-bottom-color: var(--green); }
+    .story a:hover { opacity: 0.7; }
+
+    .work-intro { padding: 120px 0 40px; }
+
+    .work-intro h1 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .work-intro p { color: var(--gray); font-size: 0.95rem; }
+
+    .tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--light-gray);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: all 0.2s;
+      user-select: none;
+    }
+
+    .tab:hover { color: var(--gray); }
+    .tab.active { color: var(--green); border-bottom-color: var(--green); }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    .work-list { padding-bottom: 48px; }
+
+    .work-item {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .work-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .work-item-name { font-weight: 700; font-size: 1rem; color: var(--black); }
+
+    .work-item-name a {
+      color: var(--green);
+      text-decoration: none;
+      border-bottom: 1px solid var(--green);
+      transition: opacity 0.2s;
+    }
+
+    .work-item-name a:hover { opacity: 0.7; }
+
+    .status {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .status.done { color: var(--green); }
+    .status.progress { color: var(--gray); }
+    .status.soon { color: var(--light-gray); }
+
+    .work-item-role { font-size: 0.85rem; color: var(--gray); margin-bottom: 6px; }
+    .work-item-desc { font-size: 0.92rem; color: var(--gray); line-height: 1.65; }
+
+    .work-item-why {
+      margin-top: 8px;
+      font-size: 0.85rem;
+      color: var(--light-gray);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .work-item-courses {
+      margin-top: 8px;
+      font-size: 0.92rem;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    footer {
+      padding: 32px 0 48px;
+      border-top: 1px solid var(--border);
+    }
+
+    footer p { color: var(--light-gray); font-size: 0.82rem; }
+
+    @media (max-width: 640px) {
+      .hero { flex-direction: column-reverse; gap: 28px; padding-top: 90px; }
+      .hero-photo { width: 100%; height: 220px; }
+      .hero h1 { font-size: 2rem; }
+      .tab { padding: 8px 14px; font-size: 0.82rem; }
+      .nav-links { gap: 16px; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero, .social-row, .section, footer { animation: fadeIn 0.5s ease both; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" onclick="showPage('home')">Maya Agnihotri</a>
+      <ul class="nav-links">
+        <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+        <li><a onclick="showPage('work')" id="nav-work">My Work</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HOME -->
+  <div class="page active" id="page-home">
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Hi, I'm Maya</h1>
+        <p class="hero-subtitle">I'm an engineer, student, entrepreneur, and creator.<br>Passionate about using data to solve real problems for real people.</p>
+        <div class="hero-links">
+          <a onclick="showPage('work')">My Work →</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="/images/maya.png" alt="Maya Agnihotri">
+      </div>
+    </div>
+
+    <div class="social-row">
+      <a href="https://www.instagram.com/option.bloom" target="_blank">Instagram</a>
+      <a href="https://substack.com/@optionbloom" target="_blank">Substack</a>
+      <a href="https://www.linkedin.com/in/mayaagnihotri" target="_blank">LinkedIn</a>
+      <a href="https://github.com/mayaagni" target="_blank">GitHub</a>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section story">
+      <div class="section-label">My Story</div>
+
+      <p>I've never been good at just one thing. For a long time, I thought that was the problem.</p>
+
+      <p>So many people around me seemed to have it figured out — one major, one career path, one clear direction. My path has always been all over the place. I studied CS and business at UNC Chapel Hill, interned at AT&amp;T and Nike, lived in five countries, founded a tech fraternity, and played club basketball — all while trying to figure out what I actually wanted to build.</p>
+
+      <p>The problems I kept coming back to were always personal — managing my ADHD, clearing my skin after a decade of failed treatments, navigating dating in New York, figuring out why the tools that are supposed to help us live better so often don't. They all felt solvable. But I couldn't find a clear path to solving them — so I decided to start building one myself.</p>
+
+      <p>That's what led to <em>option.bloom</em> — my personal brand and platform where I document, build, and share everything I'm working on. The name comes from the article <a href="https://www.terrain.com/option-rot" target="_blank"><em>Option Rot</em></a> — the idea that if you don't commit to one path, your options start decaying. I decided to flip that. Instead of letting my options rot, I'd make them bloom — pursuing everything, exploring every idea, and trusting that the through-line would reveal itself.</p>
+
+      <p>And it did. <strong>Data and AI are incredibly powerful, but unless you're deep in the tech world, there's no clear path to using them to actually better your life.</strong> That's what I aim to solve. I started with <strong>Debrief Dating</strong> — a feedback app for daters, because people don't fail at dating because of bad algorithms. They fail because they don't understand themselves. And that's just the start.</p>
+
+      <p>By day, I'm a software engineer at Nike building dashboards and data pipelines. I'm also pursuing my M.S. in CS at Georgia Tech with a focus on real-world AI applications. My goal isn't just to become a powerful engineer — it's to connect the right tools with the right people so they can spend more time doing what they love.</p>
+    </div>
+
+    <footer><p>Maya Agnihotri · New York, NY</p></footer>
+  </div>
+
+  <!-- MY WORK -->
+  <div class="page" id="page-work">
+    <div class="work-intro">
+      <h1>My Work</h1>
+      <p>Everything I've built, am building, and want to build next.</p>
+    </div>
+
+    <div class="tabs">
+      <div class="tab active" onclick="showTab('companies')">Companies</div>
+      <div class="tab" onclick="showTab('projects')">Projects</div>
+      <div class="tab" onclick="showTab('school')">School</div>
+    </div>
+
+    <div class="tab-content active" id="tab-companies">
+      <div class="work-list">
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name"><a href="https://www.blueorchid.world/" target="_blank">BlueOrchid</a></span>
+            <span class="status progress">In Progress</span>
+          </div>
+          <div class="work-item-role">Partner · Technology Solutions Consultancy</div>
+          <div class="work-item-desc">Working with my cousin to create and build apps and AI systems for people and businesses — tools that optimize their work and free them up to spend more time in the real world.</div>
+        </div>
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name">Donna.ai</span>
+            <span class="status soon">Coming Soon</span>
+          </div>
+          <div class="work-item-role">A BlueOrchid Product</div>
+          <div class="work-item-desc">A second brain that actually works for you. Donna takes in voice, text, files, and integrations, stores everything meaningfully, and manages and relays your information back to you as a tool — not more noise. Helps you remember, organize, plan, and focus on what you actually care about instead of spending all your time optimizing.</div>
+        </div>
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name">BioDiary.ai</span>
+            <span class="status soon">Coming Soon</span>
+          </div>
+          <div class="work-item-role">A Donna Subsidiary</div>
+          <div class="work-item-desc">A meaningful way to monitor and track empirical symptoms and metrics in your life to understand root causes and correlations for health — not just logging data, but actually connecting the dots.</div>
+        </div>
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name">Nike — DataHub, Compliance Dashboard</span>
+            <span class="status progress">In Progress</span>
+          </div>
+          <div class="work-item-role">Software Engineer · Oct 2025 – Present</div>
+          <div class="work-item-desc">Architecting a compliance dashboard end-to-end — data architecture, ETL pipelines, API extraction, and a presentation layer built for clarity. Focused on data storytelling: making complex compliance data legible to the people who need it.</div>
+        </div>
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name">Nike — Marketing Mix Models & Attribution</span>
+            <span class="status done">Completed</span>
+          </div>
+          <div class="work-item-role">Machine Learning Engineer · Sep 2024 – Oct 2025</div>
+          <div class="work-item-desc">Built automated data collection pipelines for 14+ sources using Python, SQL, and Databricks, feeding ML models that provide marketing attribution insights. Managed cross-functional stakeholder communications and vendor relations.</div>
+        </div>
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name">Nike — Software Engineering Intern</span>
+            <span class="status done">Completed</span>
+          </div>
+          <div class="work-item-role">Intern · Summer 2023 · Beaverton, OR</div>
+          <div class="work-item-desc">Selected as 1 of 200 interns from 35,000+ applicants into Nike's Data & AI org. Built automated financial forecasting dashboards with PowerBI and Databricks — saving 100+ hours of manual analysis annually and improving forecasting accuracy by 10%.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-projects">
+      <div class="work-list">
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name"><a href="https://www.instagram.com/option.bloom" target="_blank">option.bloom</a></span>
+            <span class="status progress">In Progress</span>
+          </div>
+          <div class="work-item-role">Personal Brand · Instagram & Substack · Jan 2025 – Present</div>
+          <div class="work-item-desc">My personal brand — a decision to stop waiting for "one thing" and start pursuing all of my projects at once. Documenting the process of building, learning, and figuring it out in a way that's authentic to me.</div>
+        </div>
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name"><a href="https://debriefdating.com" target="_blank">Debrief Dating</a></span>
+            <span class="status done">Completed</span>
+          </div>
+          <div class="work-item-role">Next.js, Supabase, Tailwind · Launched Feb 2025</div>
+          <div class="work-item-desc">A playful site with a deeper purpose. Debrief helps people get meaningful insights and data from their past relationships — patterns, habits, blind spots — to understand themselves better and become a better partner. Launched on Valentine's Day.</div>
+        </div>
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name"><a href="https://getbacktogetherwithme.com" target="_blank">getbacktogetherwithme.com</a></span>
+            <span class="status done">Completed</span>
+          </div>
+          <div class="work-item-role">Launched Feb 2025</div>
+          <div class="work-item-desc">A fun Valentine's Day promotional site for people to send to their exes — designed to funnel to Debrief Dating.</div>
+        </div>
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name"><a href="https://github.com/mayaagni/roommate-chore-sms" target="_blank">Roommate Chore Chart SMS Automation</a></span>
+            <span class="status done">Completed</span>
+          </div>
+          <div class="work-item-role">Python, Twilio · Feb 2025</div>
+          <div class="work-item-desc">Built a script that automatically texts each roommate when it's their turn to handle a house chore. Simple problem, simple solution.</div>
+        </div>
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name">Instagram Analytics</span>
+            <span class="status progress">In Progress</span>
+          </div>
+          <div class="work-item-role">Jan 2025 – Present</div>
+          <div class="work-item-desc">Created a post on TikTok and Instagram educating people on how to use their Instagram data to see who doesn't follow them back and get other meaningful insights — without getting flagged for using scrapers. Gained over 20k views across platforms. Now packaging features into a standalone web app where users can just enter their data and get these insights automatically.</div>
+        </div>
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name">Social Connections Graph</span>
+            <span class="status progress">In Progress</span>
+          </div>
+          <div class="work-item-desc">An internal CRM for all the friends I've made in NYC — mapping relationships, interests, and compatibility to set people up on coffee chats. Running different types of analyses for matching purposes while maintaining a database of my meaningful relationships.</div>
+        </div>
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name">AI to EI</span>
+            <span class="status soon">Coming Soon</span>
+          </div>
+          <div class="work-item-desc">A playful social media series where I work with "tech bros" — brilliant engineers who are so married to their work they struggle with dating and interpersonal relationships. Using Debrief Dating and other data points to help them understand where they need to grow, with the goal of finding a partner.</div>
+        </div>
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name"><a href="https://www.thirstygallerina.com/" target="_blank">ThirstyGallerina</a> Route Optimization</span>
+            <span class="status soon">Coming Soon</span>
+          </div>
+          <div class="work-item-desc">I love art and exploring galleries in NYC. ThirstyGallerina publishes a weekly list of open galleries, but they're just a standalone list. Building a tool using the Google Maps Platform API and route optimization to turn that list into an easy-to-follow, optimized walking route — which galleries to hit and in what order.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-school">
+      <div class="work-list">
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name">Georgia Institute of Technology</span>
+            <span class="status progress">In Progress</span>
+          </div>
+          <div class="work-item-role">M.S. Computer Science · 2025 – Present</div>
+          <div class="work-item-desc">Focused on real-world AI applications.</div>
+          <div class="work-item-courses">
+            <strong>Global Entrepreneurship (GT 8803)</strong> — How startups scale across markets and cultures.<br>
+            <strong>Software Development Process (CS 6300)</strong> — Building reliable, maintainable software systems.
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name">Massachusetts Institute of Technology</span>
+            <span class="status done">Completed</span>
+          </div>
+          <div class="work-item-role">Data Science and Machine Learning: Making Data-Driven Decisions · Nov 2025</div>
+        </div>
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name">University of North Carolina at Chapel Hill</span>
+            <span class="status done">Completed</span>
+          </div>
+          <div class="work-item-role">B.S. Computer Science · Business Admin & Conflict Management Minors · 2019 – 2023</div>
+          <div class="work-item-desc">Favorite courses: Cybersecurity, Data Science in Business, and Web Design — each one showed me a different angle of how technology meets real human problems.</div>
+          <div class="work-item-why">Founded Kappa Theta Pi (Eta Chapter), a co-ed professional tech fraternity, with the goal of creating genuine community and real human connection within the abstract, online world of tech.</div>
+        </div>
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name">Singapore Management University</span>
+            <span class="status done">Completed</span>
+          </div>
+          <div class="work-item-role">Study Abroad</div>
+          <div class="work-item-desc">Part of shaping how I think about the way different cultures approach technology, connection, and daily life.</div>
+        </div>
+      </div>
+    </div>
+
+    <footer><p>Maya Agnihotri · New York, NY</p></footer>
+  </div>
+
+
+  <script>
+    function showPage(page) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+      document.getElementById('page-' + page).classList.add('active');
+      document.getElementById('nav-' + page).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function showTab(tab) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+      document.getElementById('tab-' + tab).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
