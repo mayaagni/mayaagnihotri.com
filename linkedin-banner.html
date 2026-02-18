@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkedIn Banner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #888;
+    }
+    .banner {
+      width: 1584px;
+      height: 396px;
+      background: #f5f0eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #2d6a4f;
+    }
+    .name {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 52px;
+      font-weight: 400;
+      color: #111;
+      letter-spacing: -0.02em;
+    }
+    .tagline {
+      font-family: 'Karla', sans-serif;
+      font-size: 20px;
+      color: #999;
+      text-align: center;
+      line-height: 1.7;
+      max-width: 700px;
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <h1 class="name">Maya Agnihotri</h1>
+    <p class="tagline">Engineer, student, entrepreneur, and creator.<br>Passionate about using data to solve real problems for real people.</p>
+  </div>
+</body>
+</html>
