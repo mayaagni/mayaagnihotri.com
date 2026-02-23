@@ -447,7 +447,7 @@
           <a onclick="showPage('work')">My Work →</a>
         </div>
         <div class="hero-links" style="margin-top: 16px;">
-          <a href="#contact-form">Host an Event with Me →</a>
+          <a href="mailto:maya@jaannyc.com">Host an Event with Me →</a>
         </div>
       </div>
       <div class="hero-photo">
@@ -492,35 +492,11 @@
 
       <p>And I'm <strong>creating</strong> content to share my story, show other girls that you can do more than just one thing, and build an online community of others who think the same way.</p>
 
-      <p>If any of this resonated with you — whether you want to host together, build together, create together, join my events, tap into the network, or even just grab coffee — reach out below! Because the whole point is that none of this is meant to be done alone :)</p>
+      <p>If any of this resonated with you — whether you want to host together, build together, create together, join my events, tap into the network, or even just grab coffee — reach out! Because the whole point is that none of this is meant to be done alone :)</p>
     </div>
 
-    <hr class="divider">
-
-    <div class="section" id="contact-form">
-      <div class="section-label">Get in Touch</div>
-      <form id="contactForm" class="contact-form">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="firstName">First Name</label>
-            <input type="text" id="firstName" name="firstName" required>
-          </div>
-          <div class="form-group">
-            <label for="lastName">Last Name</label>
-            <input type="text" id="lastName" name="lastName" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="form-btn">Send</button>
-        <p id="formStatus" class="form-status"></p>
-      </form>
+    <div style="text-align: center; padding: 0 0 48px; margin-top: -32px;">
+      <a href="mailto:maya@jaannyc.com" class="form-btn" style="text-decoration:none;">Email Me</a>
     </div>
 
     <footer><p>Maya Agnihotri · New York, NY</p></footer>
@@ -741,41 +717,6 @@
       event.target.classList.add('active');
     }
 
-    document.getElementById('contactForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = e.target.querySelector('.form-btn');
-      const status = document.getElementById('formStatus');
-      btn.disabled = true;
-      btn.textContent = 'Sending...';
-      status.textContent = '';
-      status.className = 'form-status';
-
-      try {
-        const res = await fetch('/api/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            firstName: document.getElementById('firstName').value,
-            lastName: document.getElementById('lastName').value,
-            email: document.getElementById('email').value,
-            message: document.getElementById('message').value,
-          }),
-        });
-
-        if (res.ok) {
-          status.textContent = 'Message sent! I\'ll get back to you soon.';
-          e.target.reset();
-        } else {
-          throw new Error();
-        }
-      } catch {
-        status.textContent = 'Something went wrong. Please try again or email me directly.';
-        status.classList.add('error');
-      } finally {
-        btn.disabled = false;
-        btn.textContent = 'Send';
-      }
-    });
   </script>
 </body>
 </html>
