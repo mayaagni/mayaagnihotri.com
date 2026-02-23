@@ -58,7 +58,7 @@
     }
 
     .nav-inner {
-      max-width: 720px;
+      max-width: 740px;
       margin: 0 auto;
       padding: 14px 28px;
       display: flex;
@@ -87,7 +87,7 @@
 
     .nav-links a:hover, .nav-links a.active { color: var(--green); }
 
-    .page { display: none; max-width: 720px; margin: 0 auto; padding: 0 28px; }
+    .page { display: none; max-width: 740px; margin: 0 auto; padding: 0 28px; }
     .page.active { display: block; }
 
     .hero {
@@ -113,6 +113,13 @@
       color: var(--gray);
       line-height: 1.7;
       margin-bottom: 28px;
+    }
+
+    .hero-subtitle em {
+      font-family: 'Libre Baskerville', serif;
+      font-style: italic;
+      color: var(--light-gray);
+      font-size: 0.95rem;
     }
 
     .hero-links { display: flex; gap: 20px; }
@@ -161,14 +168,18 @@
     .social-row a {
       color: var(--green);
       text-decoration: none;
-      font-weight: 600;
-      font-size: 0.85rem;
-      border-bottom: 1px solid var(--green);
-      padding-bottom: 1px;
+      display: inline-flex;
+      align-items: center;
       transition: opacity 0.2s;
     }
 
-    .social-row a:hover { opacity: 0.7; }
+    .social-row a:hover { opacity: 0.6; }
+
+    .social-row svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--green);
+    }
 
     .divider { border: none; border-top: 1px solid var(--border); margin: 0 0 48px; }
 
@@ -271,8 +282,37 @@
     .status.progress { color: var(--gray); }
     .status.soon { color: var(--light-gray); }
 
+    .work-section-label {
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      padding: 28px 0 12px;
+      margin-top: 4px;
+      border-top: 2px solid var(--green);
+    }
+
+    .work-section-label:first-child {
+      margin-top: 0;
+      border-top: none;
+    }
+
+    .work-item + .work-section-label {
+      margin-top: 32px;
+    }
+
+    .work-item:has(+ .work-section-label) {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
     .work-item-role { font-size: 0.85rem; color: var(--gray); margin-bottom: 6px; }
     .work-item-desc { font-size: 0.92rem; color: var(--gray); line-height: 1.65; }
+    .work-item-desc a { color: var(--green); }
+    .work-item-desc a:hover { opacity: 0.7; }
+    .work-item-role a { color: var(--green); }
+    .work-item-role a:hover { opacity: 0.7; }
 
     .work-item-why {
       margin-top: 8px;
@@ -287,6 +327,79 @@
       font-size: 0.92rem;
       color: var(--gray);
       line-height: 1.7;
+    }
+
+    .contact-form {
+      max-width: 100%;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 16px;
+    }
+
+    .form-row .form-group { flex: 1; }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gray);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px 14px;
+      font-family: 'Karla', sans-serif;
+      font-size: 0.92rem;
+      color: var(--black);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--green);
+    }
+
+    .form-group textarea { resize: vertical; }
+
+    .form-btn {
+      display: inline-block;
+      padding: 10px 32px;
+      font-family: 'Karla', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #fff;
+      background: var(--green);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .form-btn:hover { opacity: 0.85; }
+    .form-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .form-status {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--green);
+    }
+
+    .form-status.error { color: #c0392b; }
+
+    @media (max-width: 640px) {
+      .form-row { flex-direction: column; gap: 0; }
     }
 
     footer {
@@ -329,9 +442,12 @@
     <div class="hero">
       <div class="hero-text">
         <h1>Hi, I'm Maya</h1>
-        <p class="hero-subtitle">I'm an engineer, student, entrepreneur, and creator.<br>Passionate about using data to solve real problems for real people.</p>
+        <p class="hero-subtitle">I'm an engineer, creator, founder, and event curator.<br><em>Passionate about connecting inspiring individuals,<br>and using data to solve real problems for real people.</em></p>
         <div class="hero-links">
           <a onclick="showPage('work')">My Work →</a>
+        </div>
+        <div class="hero-links" style="margin-top: 16px;">
+          <a href="#contact-form">Host an Event with Me →</a>
         </div>
       </div>
       <div class="hero-photo">
@@ -340,11 +456,11 @@
     </div>
 
     <div class="social-row">
-      <a href="https://www.instagram.com/option.bloom" target="_blank">Instagram</a>
-      <a href="https://substack.com/@optionbloom" target="_blank">Substack</a>
-      <a href="https://www.linkedin.com/in/mayaagnihotri" target="_blank">LinkedIn</a>
-      <a href="https://github.com/mayaagni" target="_blank">GitHub</a>
-      <a href="mailto:maya@jaannyc.com">Email</a>
+      <a href="https://www.instagram.com/option.bloom" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+      <a href="https://substack.com/@optionbloom" target="_blank" aria-label="Substack"><svg viewBox="0 0 24 24"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg></a>
+      <a href="https://www.linkedin.com/in/mayaagnihotri" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a href="https://github.com/mayaagni" target="_blank" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+      <a href="mailto:maya@jaannyc.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/><path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/></svg></a>
     </div>
 
     <p class="hero-aside">Ask me about my gap half-year at a Muay Thai camp in Thailand, my aversion towards the rise of AI-powered matchmaking apps, my favorite author — Gabor Maté, or my most recent houseplant acquisitions.</p>
@@ -354,17 +470,57 @@
     <div class="section story">
       <div class="section-label">My Story</div>
 
-      <p>I've never been good at just one thing. For a long time, I thought that was the problem.</p>
+      <p>I've never been good at just one thing. For a long time, I thought that was the <strong>problem</strong>.</p>
 
-      <p>So many people around me seemed to have it figured out — one major, one career path, one clear direction. My path has always been all over the place. I studied CS and business at UNC Chapel Hill, interned at AT&amp;T and Nike, lived in five countries, founded a tech fraternity, and played club basketball — all while trying to figure out what I actually wanted to build.</p>
+      <p>So many people around me seemed to have it figured out — one major, one career path, one clear direction. I did everything right: studied CS and Business at UNC Chapel Hill, had internships, studied abroad — but I could never shake the feeling that there was something more. <em>Every time I tried to narrow, the options multiplied.</em></p>
 
-      <p>The problems I kept coming back to were always personal — managing my ADHD, clearing my skin after a decade of failed treatments, navigating dating in New York, figuring out why the tools that are supposed to help us live better so often don't. They all felt solvable. But I couldn't find a clear path to solving them — so I decided to start building one myself.</p>
+      <p>But looking back, all of my memories have never been rooted in the things I was doing — they've been rooted in the <strong>people</strong> I was doing them with. The common thread has always been <strong>community</strong>.</p>
 
-      <p>That's what led to <em>option.bloom</em> — my personal brand and platform where I document, build, and share everything I'm working on. The name comes from the article <a href="https://www.terrain.com/option-rot" target="_blank"><em>Option Rot</em></a> — the idea that if you don't commit to one path, your options start decaying. I decided to flip that. Instead of letting my options rot, I'd make them bloom — pursuing everything, exploring every idea, and trusting that the through-line would reveal itself.</p>
+      <p>In 5th grade I fell in love with basketball, not because of the sport, but because of the team. In college I started a computer science fraternity because I wanted engineering friendships to be more than just sitting next to someone in lecture. After college, I moved to Thailand and lived at a gym where I learned Muay Thai — ate, slept, and trained with the same people for six months. And then I ended up in New York, at the coolest creative coworking space in the world, called <strong>Verci</strong>, building alongside people who make me want to become better every single day.</p>
 
-      <p>And it did. <strong>Data and AI are incredibly powerful, but unless you're deep in the tech world, there's no clear path to using them to actually better your life.</strong> That's what I aim to solve. I started with <strong>Debrief Dating</strong> — a feedback app for daters, because people don't fail at dating because of bad algorithms. They fail because they don't understand themselves. And that's just the start.</p>
+      <p>None of these experiences would've been valuable without the communities around them.</p>
 
-      <p>By day, I'm a software engineer at Nike building dashboards and data pipelines. I'm also pursuing my M.S. in CS at Georgia Tech with a focus on real-world AI applications. My goal isn't just to become a powerful engineer — it's to connect the right tools with the right people so they can spend more time doing what they love.</p>
+      <p>That's what led to <em>@option.bloom</em> — my personal brand and online community where I document, build, and share everything I'm working on. The name comes from the concept of <a href="https://www.terrain.com/option-rot" target="_blank"><em>Option Rot</em></a>: the idea that if you don't commit to one path, your options start decaying. I decided to flip that. Instead of letting my options rot, I'd make them bloom — pursuing everything, exploring every idea, and trusting that the through-line would reveal itself, and grounding all of it in community.</p>
+
+      <p>Currently, I'm a software engineer at <strong>Nike</strong> building dashboards and data pipelines.</p>
+
+      <p>I'm pursuing my <strong>M.S. in CS at Georgia Tech</strong> with a focus on real-world AI applications.</p>
+
+      <p>I'm building <strong>consumer apps and tools</strong> that help people use technology and data to <em>actually</em> make their lives better.</p>
+
+      <p>I'm hosting <strong>events</strong> to connect brilliant minds and ideas.</p>
+
+      <p>And I'm <strong>creating</strong> content to share my story, show other girls that you can do more than just one thing, and build an online community of others who think the same way.</p>
+
+      <p>If any of this resonated with you — whether you want to host together, build together, create together, join my events, tap into the network, or even just grab coffee — reach out below! Because the whole point is that none of this is meant to be done alone :)</p>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section" id="contact-form">
+      <div class="section-label">Get in Touch</div>
+      <form id="contactForm" class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="form-btn">Send</button>
+        <p id="formStatus" class="form-status"></p>
+      </form>
     </div>
 
     <footer><p>Maya Agnihotri · New York, NY</p></footer>
@@ -385,13 +541,23 @@
 
     <div class="tab-content active" id="tab-companies">
       <div class="work-list">
+        <div class="work-section-label">Events</div>
         <div class="work-item">
           <div class="work-item-header">
-            <span class="work-item-name">Nike — DataHub, Compliance Dashboard</span>
+            <span class="work-item-name">Option Bloom Events</span>
+            <span class="status soon">Coming Soon</span>
+          </div>
+          <div class="work-item-desc">Turning my passion for technology, hospitality, and event hosting into a business. Successfully co-hosted 30+ people founder dinners, company launch parties, collaborative tech-focused networking events, and more. Looking to collaborate or co-host a tech event in NYC? <a href="mailto:maya@jaannyc.com">Email me!</a></div>
+        </div>
+
+        <div class="work-section-label">Consumer Technology</div>
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name">Donna</span>
             <span class="status progress">In Progress</span>
           </div>
-          <div class="work-item-role">Software Engineer · Oct 2025 – Present</div>
-          <div class="work-item-desc">Working on team to build an end-to-end compliance dashboard — data architecture, ETL pipelines, API extraction, and a presentation layer built for clarity and data management for all of Nike's data products.</div>
+          <div class="work-item-role">Cofounder · A <a href="https://www.blueorchid.world/" target="_blank">BlueOrchid</a> Product</div>
+          <div class="work-item-desc">A second brain that actually works for you. Takes in voice, text, files, and integrations, stores everything meaningfully, and relays it back as a tool — not more noise. Remember, organize, plan, and focus on what matters.</div>
         </div>
         <div class="work-item">
           <div class="work-item-header">
@@ -403,23 +569,17 @@
         </div>
         <div class="work-item">
           <div class="work-item-header">
-            <span class="work-item-name">Donna</span>
-            <span class="status soon">Coming Soon</span>
-          </div>
-          <div class="work-item-role">Growth · A BlueOrchid Product</div>
-          <div class="work-item-desc">A second brain that actually works for you. Takes in voice, text, files, and integrations, stores everything meaningfully, and relays it back as a tool — not more noise. Remember, organize, plan, and focus on what matters.</div>
-        </div>
-        <div class="work-item">
-          <div class="work-item-header">
             <span class="work-item-name">BioDiary.ai</span>
             <span class="status soon">Coming Soon</span>
           </div>
           <div class="work-item-role">A Donna Subsidiary</div>
           <div class="work-item-desc">A meaningful way to monitor and track symptoms and health metrics to uncover root causes and correlations — not just logging data, but actually connecting the dots.</div>
         </div>
+
+        <div class="work-section-label">Ecommerce</div>
         <div class="work-item">
           <div class="work-item-header">
-            <span class="work-item-name">Jaan NYC</span>
+            <span class="work-item-name">Jaan</span>
             <span class="status soon">Coming Soon</span>
           </div>
           <div class="work-item-role">Founder · Women's Clothing Brand</div>
@@ -432,6 +592,16 @@
           </div>
           <div class="work-item-role">GTM Strategy & Tech Infrastructure</div>
           <div class="work-item-desc">My dad created a paddle optimized to his game and turned it into a brand. Helping him scale through go-to-market strategy and managing the tech infrastructure.</div>
+        </div>
+
+        <div class="work-section-label">Nike Engineering</div>
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name">Nike — DataHub, Compliance Dashboard</span>
+            <span class="status progress">In Progress</span>
+          </div>
+          <div class="work-item-role">Software Engineer · Oct 2025 – Present</div>
+          <div class="work-item-desc">Working on team to build an end-to-end compliance dashboard — data architecture, ETL pipelines, API extraction, and a presentation layer built for clarity and data management for all of Nike's data products.</div>
         </div>
         <div class="work-item">
           <div class="work-item-header">
@@ -449,6 +619,7 @@
           <div class="work-item-role">Intern · Summer 2023 · Beaverton, OR</div>
           <div class="work-item-desc">Selected as 1 of 200 interns from 35,000+ applicants into Nike's Data & AI org. Built automated financial forecasting dashboards with PowerBI and Databricks.</div>
         </div>
+
       </div>
     </div>
 
@@ -456,7 +627,7 @@
       <div class="work-list">
         <div class="work-item">
           <div class="work-item-header">
-            <span class="work-item-name"><a href="https://www.instagram.com/option.bloom" target="_blank">option.bloom</a></span>
+            <span class="work-item-name"><a href="https://www.instagram.com/option.bloom" target="_blank">@option.bloom</a></span>
             <span class="status progress">In Progress</span>
           </div>
           <div class="work-item-role">Personal Brand · Instagram & Substack · Jan 2026 – Present</div>
@@ -468,15 +639,7 @@
             <span class="status done">Completed</span>
           </div>
           <div class="work-item-role">Next.js, Supabase, Tailwind · Launched Feb 2026</div>
-          <div class="work-item-desc">A playful site with a deeper purpose. Debrief helps people get meaningful insights and data from their past relationships — patterns, habits, blind spots — to understand themselves better and become a better partner. Launched on Valentine's Day.</div>
-        </div>
-        <div class="work-item">
-          <div class="work-item-header">
-            <span class="work-item-name"><a href="https://getbacktogetherwithme.com" target="_blank">getbacktogetherwithme.com</a></span>
-            <span class="status done">Completed</span>
-          </div>
-          <div class="work-item-role">Launched Feb 2026</div>
-          <div class="work-item-desc">A fun Valentine's Day promotional site for people to send to their exes — designed to funnel to Debrief Dating.</div>
+          <div class="work-item-desc">A playful site with a deeper purpose. Debrief helps people get meaningful insights and data from their past relationships — patterns, habits, blind spots — to understand themselves better and become a better partner. Launched on Valentine's Day alongside <a href="https://getbacktogetherwithme.com" target="_blank">getbacktogetherwithme.com</a>, a promotional site for people to send to their exes.</div>
         </div>
         <div class="work-item">
           <div class="work-item-header">
@@ -577,6 +740,42 @@
       document.getElementById('tab-' + tab).classList.add('active');
       event.target.classList.add('active');
     }
+
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-btn');
+      const status = document.getElementById('formStatus');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      status.textContent = '';
+      status.className = 'form-status';
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            firstName: document.getElementById('firstName').value,
+            lastName: document.getElementById('lastName').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value,
+          }),
+        });
+
+        if (res.ok) {
+          status.textContent = 'Message sent! I\'ll get back to you soon.';
+          e.target.reset();
+        } else {
+          throw new Error();
+        }
+      } catch {
+        status.textContent = 'Something went wrong. Please try again or email me directly.';
+        status.classList.add('error');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Send';
+      }
+    });
   </script>
 </body>
 </html>
