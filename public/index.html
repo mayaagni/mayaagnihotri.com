@@ -94,7 +94,7 @@
       display: flex;
       align-items: center;
       gap: 48px;
-      padding: 120px 0 60px;
+      padding: 100px 0 28px;
     }
 
     .hero-text { flex: 1; }
@@ -109,7 +109,7 @@
     }
 
     .hero-subtitle {
-      font-size: 1.05rem;
+      font-size: 1.2rem;
       color: var(--gray);
       line-height: 1.7;
       margin-bottom: 28px;
@@ -136,6 +136,17 @@
     }
 
     .hero-links a:hover { opacity: 0.6; }
+
+    .host-event-link {
+      font-family: 'Libre Baskerville', serif;
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--green);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .host-event-link:hover { opacity: 0.6; }
 
     .hero-aside {
       margin-bottom: 32px;
@@ -219,7 +230,7 @@
       margin-bottom: 12px;
     }
 
-    .work-intro { padding: 120px 0 40px; }
+    .work-intro { padding: 100px 0 40px; }
 
     .work-intro h1 {
       font-family: 'Libre Baskerville', serif;
@@ -458,9 +469,6 @@
         <div class="hero-links">
           <a onclick="showPage('work')">My Work →</a>
         </div>
-        <div class="hero-links" style="margin-top: 16px;">
-          <a href="mailto:maya@jaannyc.com">Host an Event with Me →</a>
-        </div>
       </div>
       <div class="hero-photo">
         <img src="/images/maya.png" alt="Maya Agnihotri">
@@ -475,8 +483,6 @@
       <a href="mailto:maya@jaannyc.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/><path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/></svg></a>
     </div>
 
-    <p class="hero-aside">Ask me about my gap half-year at a Muay Thai camp in Thailand, my aversion towards the rise of AI-powered matchmaking apps, my favorite author — Gabor Maté, or my most recent houseplant acquisitions.</p>
-
     <hr class="divider">
 
     <div class="section story">
@@ -484,7 +490,7 @@
 
       <p>I've never been good at just one thing. For a long time, I thought that was the <strong>problem</strong>.</p>
 
-      <p>So many people around me seemed to have it figured out — one major, one career path, one clear direction. And I did everything right: the degree, the internships, the 9-5 — but I could never shake the feeling that there was something more.</p>
+      <p>So many people around me seemed to have it figured out — one major, one career path, one clear direction. And I did everything right: the degree, the internships, the 9-5 — but I could never shake the feeling that there was <em>something more</em>.</p>
 
       <p>Looking back, all of my memories have never been rooted in the things I was doing — they've been rooted in the <strong>people</strong> I was doing them with. The common thread has always been <strong>community</strong>.</p>
 
@@ -492,15 +498,13 @@
 
       <p>In college I started a computer science fraternity because I wanted engineering friendships to be more than just sitting next to someone in lecture.</p>
 
-      <p>After college, I moved to Thailand and lived at a gym where I learned Muay Thai — ate, slept, and trained with the same people for six months.</p>
-
       <p>And then I ended up in New York, at the coolest creative coworking space in the world, called <strong><a href="https://www.verci.com/" target="_blank" style="color: inherit; border: none; text-decoration: none;">Verci</a></strong>, building alongside people who make me want to become better every single day.</p>
 
-      <p>None of these experiences would've been valuable without the relationships I built around them.</p>
+      <p><em>None of these experiences would've been valuable without the relationships I built around them.</em></p>
 
       <p><strong>This became my north star: Community.</strong> Everything I do comes back to that.</p>
 
-      <p>Currently, I'm building that community in three ways.</p>
+      <p>Currently, I'm building that community in <strong>three ways</strong>.</p>
 
       <ol>
         <li>Through <strong>reimagining what tech events can feel like</strong> by creating elevated, sexy, intentional experiences that actually reflect the people in the room.</li>
@@ -510,14 +514,17 @@
 
       <p><a onclick="showPage('work')" style="cursor:pointer;">Learn more about what I do here.</a></p>
 
-      <p>If any of this resonated with you — whether you want to host together, build together, join my events, tap into the network, or even just grab coffee — reach out! Because the whole point is that none of this is meant to be done alone :)</p>
+      <p>If any of this resonated with you — whether you want to host together, build together, join my events, tap into the network, or even just grab coffee — reach out! Because the whole point is that <strong>none of this is meant to be done alone</strong> :)</p>
     </div>
 
     <div style="text-align: center; padding: 0 0 48px; margin-top: -32px;">
       <a href="mailto:maya@jaannyc.com" class="form-btn" style="text-decoration:none;">Email Me</a>
     </div>
 
-    <footer><p>Maya Agnihotri · New York, NY</p></footer>
+    <footer>
+      <p style="font-style: italic; margin-bottom: 8px;">Ask me about my gap half-year at a Muay Thai camp in Thailand, my aversion towards the rise of AI-powered matchmaking apps, my favorite author — Gabor Maté, or my most recent houseplant acquisitions.</p>
+      <p>Maya Agnihotri · New York, NY</p>
+    </footer>
   </div>
 
   <!-- MY WORK -->
@@ -528,22 +535,40 @@
     </div>
 
     <div class="tabs">
-      <div class="tab active" onclick="showTab('companies')">Companies</div>
+      <div class="tab active" onclick="showTab('community')">Community</div>
+      <div class="tab" onclick="showTab('work')">Work</div>
       <div class="tab" onclick="showTab('projects')">Projects</div>
       <div class="tab" onclick="showTab('school')">School</div>
     </div>
 
-    <div class="tab-content active" id="tab-companies">
+    <div class="tab-content active" id="tab-community">
       <div class="work-list">
-        <div class="work-section-label">Events</div>
         <div class="work-item">
           <div class="work-item-header">
-            <span class="work-item-name">Option Bloom Events</span>
+            <span class="work-item-name">Tech Events Curator</span>
+            <span class="status progress">In Progress</span>
+          </div>
+          <div class="work-item-desc">Making tech events sexy, elevated, and intentional. Successfully hosted and co-hosted founder dinners, launch parties, creator nights, and networking experiences in collaboration with venture-backed startups, renowned venues, and large content creators. Looking to collaborate or co-host in nyc? <a href="mailto:maya@jaannyc.com">Email me!</a></div>
+        </div>
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name">Members Community</span>
             <span class="status soon">Coming Soon</span>
           </div>
-          <div class="work-item-desc">Turning my passion for technology, hospitality, and event hosting into a business. Successfully co-hosted 30+ people founder dinners, company launch parties, collaborative tech-focused networking events, and more. Looking to collaborate or co-host a tech event in NYC? <a href="mailto:maya@jaannyc.com">Email me!</a></div>
+          <div class="work-item-desc">A worldwide network for women who don't fit into a box — women in tech, startups, and analytical fields with colorful, multidimensional lives far beyond their careers. A high-value space to connect and co-create, providing retreats, events, mentorship, and so much more.</div>
         </div>
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name"><em>mesh nyc</em></span>
+            <span class="status soon">Coming Soon</span>
+          </div>
+          <div class="work-item-desc">Co-created with my roommates — an intimate supper club hosted monthly out of our apartment, designed to foster real, deep connections far beyond what a typical networking event can offer. Each month, 8 people share a unique dining and activity-based experience with one goal: intentional, meaningful connection.</div>
+        </div>
+      </div>
+    </div>
 
+    <div class="tab-content" id="tab-work">
+      <div class="work-list">
         <div class="work-section-label">Consumer Technology</div>
         <div class="work-item">
           <div class="work-item-header">
@@ -558,16 +583,22 @@
             <span class="work-item-name"><a href="https://www.blueorchid.world/" target="_blank">BlueOrchid</a></span>
             <span class="status progress">In Progress</span>
           </div>
-          <div class="work-item-role">Member · Technology Solutions Consultancy</div>
-          <div class="work-item-desc">Building apps and AI systems for people and businesses — tools that optimize their work and free them up to spend more time in the real world.</div>
+          <div class="work-item-role">Head of Growth & GTM</div>
+          <div class="work-item-desc">Building AI native systems for people and businesses — tools that optimize their work and free them up to spend more time in the real world.</div>
         </div>
         <div class="work-item">
           <div class="work-item-header">
-            <span class="work-item-name">BioDiary.ai</span>
+            <span class="work-item-name">Venture Partner (Stealth)</span>
             <span class="status soon">Coming Soon</span>
           </div>
-          <div class="work-item-role">A Donna Subsidiary</div>
-          <div class="work-item-desc">A meaningful way to monitor and track symptoms and health metrics to uncover root causes and correlations — not just logging data, but actually connecting the dots.</div>
+          <div class="work-item-desc">Driving US market expansion for an international startup accelerator by sourcing domestic leads, partnerships, and market entry opportunities.</div>
+        </div>
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name">Consumer Matchmaking App (Stealth)</span>
+            <span class="status soon">Coming Soon</span>
+          </div>
+          <div class="work-item-role">Developer</div>
         </div>
 
         <div class="work-section-label">Ecommerce</div>
@@ -625,7 +656,7 @@
             <span class="status progress">In Progress</span>
           </div>
           <div class="work-item-role">Personal Brand · Instagram & Substack · Jan 2026 – Present</div>
-          <div class="work-item-desc">My personal brand — a decision to stop waiting for "one thing" and start pursuing all of my projects at once. Documenting the process of building, learning, and figuring it out in a way that's authentic to me.</div>
+          <div class="work-item-desc">My personal brand — built to combat the idea of "option rot," which says if you don't go all in on one thing, your options start rotting. I'm doing the opposite: pursuing all of my options at once and documenting the process through content.</div>
         </div>
         <div class="work-item">
           <div class="work-item-header">
@@ -633,7 +664,7 @@
             <span class="status done">Completed</span>
           </div>
           <div class="work-item-role">Next.js, Supabase, Tailwind · Launched Feb 2026</div>
-          <div class="work-item-desc">A playful site with a deeper purpose. Debrief helps people get meaningful insights and data from their past relationships — patterns, habits, blind spots — to understand themselves better and become a better partner. Launched on Valentine's Day alongside <a href="https://getbacktogetherwithme.com" target="_blank">getbacktogetherwithme.com</a>, a promotional site for people to send to their exes.</div>
+          <div class="work-item-desc">A "Spotify-Wrapped" style summary of your love life. Helping people get meaningful insights and data from their past relationships — patterns, habits, blind spots — to understand themselves better and become a better partner. Launched on Valentine's Day alongside <a href="https://getbacktogetherwithme.com" target="_blank">getbacktogetherwithme.com</a>, a promotional site for people to send to their exes.</div>
         </div>
         <div class="work-item">
           <div class="work-item-header">
