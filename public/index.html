@@ -109,7 +109,7 @@
     }
 
     .hero-subtitle {
-      font-size: 1.2rem;
+      font-size: 1.05rem;
       color: var(--gray);
       line-height: 1.7;
       margin-bottom: 28px;
@@ -425,6 +425,96 @@
       .form-row { flex-direction: column; gap: 0; }
     }
 
+    .slideshow-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 32px 0 0;
+    }
+
+    .slideshow {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      height: 400px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .slideshow-track {
+      height: 100%;
+      position: relative;
+    }
+
+    .slideshow-track img {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .slideshow-track img.active {
+      opacity: 1;
+    }
+
+    .slideshow-caption {
+      text-align: center;
+      font-size: 0.92rem;
+      font-style: italic;
+      color: var(--green);
+      margin-top: 4px;
+      min-height: 1.6em;
+      transition: opacity 0.5s ease;
+    }
+
+    .slideshow-arrow {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: transparent;
+      border: 1.5px solid var(--border);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: var(--gray);
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+
+    .slideshow-arrow:hover { border-color: var(--green); color: var(--green); }
+
+    @media (max-width: 640px) {
+      .slideshow { height: 260px; }
+    }
+
+    .slideshow-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+      margin-bottom: 32px;
+    }
+
+    .slideshow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .slideshow-dot.active { background: var(--green); }
+
     footer {
       padding: 32px 0 48px;
       border-top: 1px solid var(--border);
@@ -465,7 +555,7 @@
     <div class="hero">
       <div class="hero-text">
         <h1>Hi, I'm Maya</h1>
-        <p class="hero-subtitle">I'm an engineer, creator, founder, and event curator.<br><br><em>Building consumer technology, creating community, and elevating the world of tech events</em></p>
+        <p class="hero-subtitle">I'm an engineer, creator, founder, & event curator.<br><br><em>Building consumer technology, creating community, and elevating the world of tech events</em></p>
         <div class="hero-links">
           <a onclick="showPage('work')">My Work →</a>
         </div>
@@ -498,7 +588,7 @@
 
       <p>In college I started a computer science fraternity because I wanted engineering friendships to be more than just sitting next to someone in lecture.</p>
 
-      <p>After college, I ended up in New York, at the coolest creative coworking space in the world, called <strong><a href="https://www.verci.com/" target="_blank" style="color: inherit; border: none; text-decoration: none;">Verci</a></strong>, building alongside people who make me want to become better every single day.</p>
+      <p>After college, I moved to Thailand and lived at a Muay Thai gym for six months. Five hours a day, same group of people, training side by side.</p>
 
       <p><em>None of these experiences would've been valuable without the relationships I built around them.</em></p>
 
@@ -512,14 +602,26 @@
         <li>And through <strong><a href="https://www.instagram.com/option.bloom" target="_blank" style="color: inherit; border: none; text-decoration: none;">content</a></strong>: sharing my journey to show the next generation of women that you can be sharp and business-savvy and still be feminine, creative, and multidimensional.</li>
       </ol>
 
-      <p><a onclick="showPage('work')" style="cursor:pointer;">Learn more about what I do here.</a></p>
+      <p>Learn more about what I do <a onclick="showPage('work')" style="cursor:pointer; color: var(--green); text-decoration: underline;">here</a>.</p>
 
-      <p>If any of this resonated with you — whether you want to host together, build together, join my events, tap into the network, or even just grab coffee — reach out! Because the whole point is that <strong>none of this is meant to be done alone</strong> :)</p>
+      <p>If any of this resonated with you — whether you want to host together, build together, join my events, tap into the network, or even just grab coffee — <a href="mailto:maya@jaannyc.com" style="color: var(--green); text-decoration: underline;">reach out</a>! Because the whole point is that <strong>none of this is meant to be done alone</strong> :)</p>
     </div>
 
-    <div style="text-align: center; padding: 0 0 48px; margin-top: -32px;">
-      <a href="mailto:maya@jaannyc.com" class="form-btn" style="text-decoration:none;">Email Me</a>
+    <div class="slideshow-wrapper">
+      <button class="slideshow-arrow prev" id="slidePrev">&#8249;</button>
+      <div class="slideshow" id="slideshow">
+        <div class="slideshow-track" id="slideshowTrack">
+          <img src="/images/slideshow/DSC_0237.JPG" alt="" data-caption="My cousin and cofounder at our beta launch party for Donna, an app we are building to help people organize their lives using AI and voice technology.">
+          <img src="/images/slideshow/IMG_2512.jpeg" alt="" data-caption="My fellow Muay Thai trainees and I at Khunsuek Muay Thai in Krabi, Thailand.">
+          <img src="/images/slideshow/2019-11-16_13-29-32_220.jpeg" alt="" data-caption="Carolina Women's Club Basketball Team. My first and last season before a career-ending concussion.">
+          <img src="/images/slideshow/2020-10-26_10-31-06_000.jpeg" alt="" data-caption="My first experience as a founder.">
+          <img src="/images/slideshow/IMG_9696.JPG" alt="" data-caption="Pre-training braids before Muay Thai :)">
+        </div>
+      </div>
+      <button class="slideshow-arrow next" id="slideNext">&#8250;</button>
     </div>
+    <p class="slideshow-caption" id="slideshowCaption"></p>
+    <div class="slideshow-dots" id="slideshowDots"></div>
 
     <footer>
       <p style="font-style: italic; margin-bottom: 8px;">Ask me about my gap half-year at a Muay Thai camp in Thailand, my aversion towards the rise of AI-powered matchmaking apps, my favorite author — Gabor Maté, or my most recent houseplant acquisitions.</p>
@@ -535,14 +637,21 @@
     </div>
 
     <div class="tabs">
-      <div class="tab active" onclick="showTab('community')">Community</div>
-      <div class="tab" onclick="showTab('work')">Work</div>
+      <div class="tab active" onclick="showTab('work')">Work</div>
+      <div class="tab" onclick="showTab('community')">Community</div>
       <div class="tab" onclick="showTab('projects')">Projects</div>
       <div class="tab" onclick="showTab('school')">School</div>
     </div>
 
-    <div class="tab-content active" id="tab-community">
+    <div class="tab-content" id="tab-community">
       <div class="work-list">
+        <div class="work-item">
+          <div class="work-item-header">
+            <span class="work-item-name"><em>The Guestbook NYC</em></span>
+            <span class="status soon">Coming Soon</span>
+          </div>
+          <div class="work-item-desc">Most events give you a list of names and a room full of strangers. Guestbook gives you something to walk toward. We match you with attendees before you arrive. The catch? We don't tell you why. It could be business, a shared obsession, or something else entirely. Your job is to figure it out.</div>
+        </div>
         <div class="work-item">
           <div class="work-item-header">
             <span class="work-item-name">Tech Events Curator</span>
@@ -560,7 +669,7 @@
       </div>
     </div>
 
-    <div class="tab-content" id="tab-work">
+    <div class="tab-content active" id="tab-work">
       <div class="work-list">
         <div class="work-section-label">Consumer Technology</div>
         <div class="work-item">
@@ -638,11 +747,11 @@
       <div class="work-list">
         <div class="work-item">
           <div class="work-item-header">
-            <span class="work-item-name"><a href="https://www.instagram.com/mayaagnihotri_" target="_blank">Content Creator</a></span>
+            <span class="work-item-name"><a href="https://www.instagram.com/option.bloom" target="_blank">Content Creator</a></span>
             <span class="status progress">In Progress</span>
           </div>
           <div class="work-item-role">Personal Brand · Instagram & Substack · Jan 2026 – Present</div>
-          <div class="work-item-desc">Sharing my journey to show the next generation of women that you can be sharp and business-savvy and still be feminine, creative, and multidimensional.</div>
+          <div class="work-item-desc">My personal brand — built to combat the idea of "option rot," which says if you don't go all in on one thing, your options start rotting. I'm doing the opposite: pursuing all of my options at once and documenting the process through content.</div>
         </div>
         <div class="work-item">
           <div class="work-item-header">
@@ -752,6 +861,44 @@
       event.target.classList.add('active');
     }
 
+    (function() {
+      const track = document.getElementById('slideshowTrack');
+      const dotsContainer = document.getElementById('slideshowDots');
+      const captionEl = document.getElementById('slideshowCaption');
+      const slides = track.querySelectorAll('img');
+      let current = 0;
+      let timer;
+
+      slides[0].classList.add('active');
+      captionEl.textContent = slides[0].dataset.caption;
+
+      slides.forEach((_, i) => {
+        const dot = document.createElement('div');
+        dot.className = 'slideshow-dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', () => { goTo(i); resetTimer(); });
+        dotsContainer.appendChild(dot);
+      });
+
+      function goTo(index) {
+        slides[current].classList.remove('active');
+        current = ((index % slides.length) + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        captionEl.textContent = slides[current].dataset.caption;
+        dotsContainer.querySelectorAll('.slideshow-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === current);
+        });
+      }
+
+      function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(() => goTo(current + 1), 4000);
+      }
+
+      document.getElementById('slidePrev').addEventListener('click', () => { goTo(current - 1); resetTimer(); });
+      document.getElementById('slideNext').addEventListener('click', () => { goTo(current + 1); resetTimer(); });
+
+      resetTimer();
+    })();
   </script>
 </body>
 </html>
